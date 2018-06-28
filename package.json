@@ -4,9 +4,15 @@
   "description": "Puzzle representation using ksolve's approach.",
   "author": "Lucas Garron <code@garron.net> (https://garron.net/)",
   "license": "MIT",
+  "main": "./dist/kpuzzle.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "alg": "*"
   },
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts"
+  "devDependencies": {
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8"
+  }
 }

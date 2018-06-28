@@ -1,4 +1,4 @@
-import {BlockMove} from "alg"
+import {BaseMove} from "alg"
 // TODO: Properly handle freezing
 
 export class OrbitTransformation {
@@ -143,12 +143,12 @@ export default class KPuzzle {
     return output;
   }
 
-  applyBlockMove(blockMove: BlockMove) {
-    var move = this.definition.moves[blockMove.base];
+  applyBaseMove(BaseMove: BaseMove) {
+    var move = this.definition.moves[BaseMove.family];
     if (!move) {
-      throw `Unknown move: ${blockMove.base}`
+      throw `Unknown move: ${BaseMove.family}`
     }
-    var multiple = Multiply(this.definition, move, blockMove.amount);
+    var multiple = Multiply(this.definition, move, BaseMove.amount);
     this.state = Combine(this.definition, this.state, multiple);
   }
 
