@@ -1,20 +1,30 @@
 const path = require("path");
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const WebpackNotifierPlugin = require("webpack-notifier");
 
-const lib_name = "kpuzzle";
+const lib_name = require("./package.json").name;
+
+var PROD = JSON.parse(process.env.PROD || false);
 
 module.exports = {
-  entry: "./index.ts",
+  entry: "./src/index.ts",
   mode: "none",
+  devtool: "source-map",
+  plugins: [
+    new WebpackNotifierPlugin({alwaysNotify: true})
+  ],
   module: {
     rules: [
       {
+        test: /\.ts$/,
         use: "ts-loader",
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [".ts"]
+    extensions: [ ".ts" ]
   },
   output: {
     filename: lib_name + ".js",
@@ -23,8 +33,27 @@ module.exports = {
     libraryTarget: "umd",
     // Workaround for Webpack 4. See https://github.com/webpack/webpack/issues/6522#issuecomment-371120689
     globalObject: "typeof self !== \"undefined\" ? self : this"
-  },
-  externals: [
-    "alg"
-  ]
+  }
 };
+
+if (PROD) {
+  // https://webpack.js.org/concepts/mode/#mode-production
+  module.exports.plugins.push(
+    new UglifyJSPlugin({
+      sourceMap: true,
+      uglifyOptions: {
+        keep_classnames: true
+      }
+    })
+  );
+  module.exports.plugins.push(
+    new webpack.DefinePlugin({"process.env.NODE_ENV": JSON.stringify("production")})
+  );
+  module.exports.plugins.push(
+    new webpack.optimize.ModuleConcatenationPlugin()
+  );
+  module.exports.plugins.push(
+    new webpack.NoEmitOnErrorsPlugin()
+  );
+}
+

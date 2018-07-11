@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es6",
 
+    "rootDir": "src",
+    "outDir": "",
     "declaration": true,
     "sourceMap": true,
 
@@ -12,6 +14,6 @@
     "strictNullChecks": true
   },
   "include": [
-    "*.ts"
+    "src"
   ]
 }

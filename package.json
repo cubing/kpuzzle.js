@@ -10,9 +10,15 @@
     "alg": "*"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.3",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.0",
     "typescript": "^2.9.2",
     "webpack": "^4.12.2",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-notifier": "^1.6.0"
   }
 }

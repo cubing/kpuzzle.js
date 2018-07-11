@@ -7,7 +7,7 @@ export {
   EquivalentTransformations,
   EquivalentStates,
   Transformation,
-  default as KPuzzle,
+  KPuzzle,
   SVG
 } from "./kpuzzle"
 
