@@ -20,5 +20,8 @@
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8",
     "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "prepublish": "make dist"
   }
 }
