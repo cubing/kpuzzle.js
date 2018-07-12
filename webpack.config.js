@@ -33,7 +33,10 @@ module.exports = {
     libraryTarget: "umd",
     // Workaround for Webpack 4. See https://github.com/webpack/webpack/issues/6522#issuecomment-371120689
     globalObject: "typeof self !== \"undefined\" ? self : this"
-  }
+  },
+  externals: [
+    "alg"
+  ]
 };
 
 if (PROD) {
