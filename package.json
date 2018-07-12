@@ -7,7 +7,7 @@
   "main": "./dist/kpuzzle.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "alg": "*"
+    "alg": "^0.9.6"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",

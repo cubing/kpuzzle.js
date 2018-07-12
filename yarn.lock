@@ -173,9 +173,9 @@ ajv@^6.1.0:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.1"
 
-alg@*:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/alg/-/alg-0.2.0.tgz#19a95e9d26404918b6895eda0b8271500e3e46c9"
+alg@^0.9.6:
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/alg/-/alg-0.9.6.tgz#aef07bcdd11f414b6647f2606a47a38f0de756f9"
 
 ansi-escapes@^3.0.0:
   version "3.1.0"
