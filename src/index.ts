@@ -7,8 +7,7 @@ export {
   EquivalentTransformations,
   EquivalentStates,
   Transformation,
-  KPuzzle,
-  SVG
+  KPuzzle
 } from "./kpuzzle"
 
 export {
@@ -18,3 +17,7 @@ export {
 export {
   parse
  } from "./parser"
+
+export {
+  SVG
+} from "./svg"
