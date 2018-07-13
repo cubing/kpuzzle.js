@@ -14,3 +14,7 @@ export {
 export {
   Puzzles
 } from "./puzzle_definitions"
+
+export {
+  parse
+ } from "./parser"
