@@ -9,6 +9,9 @@
   "dependencies": {
     "alg": "^0.9.6"
   },
+  "externalsForWebpack": [
+    "alg"
+  ],
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.3",
