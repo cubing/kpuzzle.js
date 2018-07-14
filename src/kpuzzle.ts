@@ -1,4 +1,4 @@
-import {BlockMove} from "alg"
+import {SiGNMove} from "alg"
 // TODO: Properly handle freezing
 export class OrbitTransformation {
   permutation: number[]
@@ -140,12 +140,13 @@ export class KPuzzle {
     return output;
   }
 
-  applyBlockMove(BlockMove: BlockMove) {
-    var move = this.definition.moves[BlockMove.family];
+  applySiGNMove(signMove: SiGNMove) {
+    // TODO: Take into account layers.
+    var move = this.definition.moves[signMove.family];
     if (!move) {
-      throw `Unknown move: ${BlockMove.family}`
+      throw `Unknown move family: ${signMove.family}`
     }
-    var multiple = Multiply(this.definition, move, BlockMove.amount);
+    var multiple = Multiply(this.definition, move, signMove.amount);
     this.state = Combine(this.definition, this.state, multiple);
   }
 
