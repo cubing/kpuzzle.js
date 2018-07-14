@@ -1,6 +1,5 @@
 import {BlockMove} from "alg"
 // TODO: Properly handle freezing
-
 export class OrbitTransformation {
   permutation: number[]
   orientation: number[]
@@ -33,11 +32,9 @@ export function Combine(def: KPuzzleDefinition, t1: Transformation, t2: Transfor
     var newOri = new Array(oDef.numPieces);
     for (var idx = 0; idx < oDef.numPieces; idx++) {
       // We subtract 1 to translate from location to index.
-      var prevIdx = (o2.permutation[idx] as number) - 1;
-      newPerm[idx] = o1.permutation[prevIdx];
-
-      var orientationChange = o2.orientation[idx];
-      newOri[idx] = (o1.orientation[prevIdx] + orientationChange) % oDef.orientations;
+      newOri[idx] = (o1.orientation[o2.permutation[idx]-1] + o2.orientation[idx])
+                                                         % oDef.orientations ;
+      newPerm[idx] = o1.permutation[o2.permutation[idx]-1] ;
     }
     newTrans[orbitName] = {permutation: newPerm, orientation: newOri};
   }
