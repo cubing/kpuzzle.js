@@ -9,6 +9,7 @@
 "Move"                 { this.begin("id"); return "TOKEN_Move" }
 "Solved"               return "TOKEN_Solved"
 "End"                  return "TOKEN_End"
+/* TODO: Split this up into smaller, more understandable parts. */
 <id>(([1-9][0-9]*)(([1-9][0-9]*)*)?)*(([A-Za-z]+)|(\<[A-Za-z]+(_[A-Za-z]+)*\>)) { this.popState(); return "IDENTIFIER" }
 [A-Za-z][A-Za-z0-9]*   return "SET_IDENTIFIER"
 [0-9]+                 return "INTEGER"
