@@ -1,4 +1,4 @@
-import {SiGNMove} from "alg"
+import {SiGNMove, algToString, Sequence} from "alg"
 // TODO: Properly handle freezing
 export class OrbitTransformation {
   permutation: number[]
@@ -13,6 +13,7 @@ export class OrbitDefinition {
   numPieces: number
   orientations: number
 }
+
 export class KPuzzleDefinition {
   name: string
   orbits: {[/* orbit name */key: string]: OrbitDefinition}
@@ -123,6 +124,17 @@ export function EquivalentStates(def: KPuzzleDefinition, t1: Transformation, t2:
   );
 }
 
+// TODO: Move other helpers into the definition.
+export function stateForSiGNMove(def: KPuzzleDefinition, signMove: SiGNMove) {
+  // TODO: Optimize this.
+  var repMoveString = algToString(new Sequence([new SiGNMove(signMove.outerLayer, signMove.innerLayer, signMove.family, 1)]));
+  var move = def.moves[repMoveString];
+  if (!move) {
+    throw `Unknown move family: ${signMove.family}`
+  }
+  return Multiply(def, move, signMove.amount);
+}
+
 export class KPuzzle {
   public state: Transformation
   constructor(public definition: KPuzzleDefinition) {
@@ -141,13 +153,7 @@ export class KPuzzle {
   }
 
   applySiGNMove(signMove: SiGNMove) {
-    // TODO: Take into account layers.
-    var move = this.definition.moves[signMove.family];
-    if (!move) {
-      throw `Unknown move family: ${signMove.family}`
-    }
-    var multiple = Multiply(this.definition, move, signMove.amount);
-    this.state = Combine(this.definition, this.state, multiple);
+    this.state = Combine(this.definition, this.state, stateForSiGNMove(this.definition, signMove));
   }
 
   applyMove(moveName: string): this {
