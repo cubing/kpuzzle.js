@@ -1,4 +1,5 @@
 import {SiGNMove, algToString, Sequence} from "alg"
+import {MoveExpander} from "./moveexpander"
 // TODO: Properly handle freezing
 export class OrbitTransformation {
   permutation: number[]
@@ -20,6 +21,7 @@ export class KPuzzleDefinition {
   startPieces: Transformation // TODO: Expose a way to get the transformed start pieces.
   moves: {[/* move name */key: string]: Transformation}
   svg?: string
+  moveExpander?: MoveExpander ;
 }
 
 export function Combine(def: KPuzzleDefinition, t1: Transformation, t2: Transformation): Transformation {
@@ -128,7 +130,10 @@ export function EquivalentStates(def: KPuzzleDefinition, t1: Transformation, t2:
 export function stateForSiGNMove(def: KPuzzleDefinition, signMove: SiGNMove) {
   // TODO: Optimize this.
   var repMoveString = algToString(new Sequence([new SiGNMove(signMove.outerLayer, signMove.innerLayer, signMove.family, 1)]));
-  var move = def.moves[repMoveString];
+  var move:Transformation|undefined = def.moves[repMoveString];
+  if (!move) {
+      move = new KPuzzle(def).expandSlices(repMoveString, signMove) ;
+  }
   if (!move) {
     throw `Unknown move family: ${signMove.family}`
   }
@@ -157,13 +162,42 @@ export class KPuzzle {
   }
 
   applyMove(moveName: string): this {
-    var move = this.definition.moves[moveName];
+    var move:Transformation|undefined = this.definition.moves[moveName];
+    if (!move) {
+      move = this.expandSlicesByName(moveName) ;
+    }
     if (!move) {
       throw `Unknown move: ${moveName}`
     }
 
     this.state = Combine(this.definition, this.state, move);
     return this;
+  }
+
+  getMoveExpander(create:boolean) {
+     var moveExpander = this.definition.moveExpander ;
+     if (create && !moveExpander) {
+        moveExpander = new MoveExpander() ;
+        this.definition.moveExpander = moveExpander ;
+     }
+     return moveExpander ;
+  }
+  setFaceNames(faceNames:Array<string>):void {
+     var me = this.getMoveExpander(true) ;
+     if (me)
+        me.setFaceNames(faceNames) ;
+  }
+  addGrip(grip1:string, grip2:string, nslices:number):void {
+     var me = this.getMoveExpander(true) ;
+     return me ? me.addGrip(grip1, grip2, nslices, this.definition) : undefined ;
+  }
+  expandSlices(rep:string, signMove:SiGNMove):Transformation|undefined {
+     var me = this.getMoveExpander(false) ;
+     return me ? me.expandSlices(rep, signMove, this.definition) : undefined ;
+  }
+  expandSlicesByName(mv:string):Transformation|undefined {
+     var me = this.getMoveExpander(false) ;
+     return me ? me.expandSlicesByName(mv, this.definition) : undefined ;
   }
 
   // TODO: Implement
