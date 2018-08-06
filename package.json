@@ -1,6 +1,6 @@
 {
   "name": "kpuzzle",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "description": "Puzzle representation using ksolve's approach.",
   "author": "Lucas Garron <code@garron.net> (https://garron.net/)",
   "license": "MIT",
