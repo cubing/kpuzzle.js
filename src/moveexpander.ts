@@ -39,8 +39,6 @@ export class MoveExpander {
      axes[grip2] = aprime ;
   }
   splitByFaceNames(s:string, facenames:Array<string>) {
-      if (s.startsWith("<"))
-         s = s.substring(1, s.length-1) ;
       var r:Array<string> = [] ;
       var at = 0 ;
       while (at < s.length) {
@@ -83,8 +81,6 @@ export class MoveExpander {
               var testGrip = "" ;
               for (var j=0; j<faceSplit.length; j++)
                  testGrip += faceSplit[(i+j)%faceSplit.length] ;
-              if (grip.startsWith("<"))
-                 testGrip = "<" + testGrip + ">" ;
               slices = axes[testGrip] ;
               if (slices) {
                  grip = testGrip ;
