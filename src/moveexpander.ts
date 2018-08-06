@@ -39,7 +39,6 @@ export class MoveExpander {
      axes[grip2] = aprime ;
   }
   splitByFaceNames(s:string, facenames:Array<string>) {
- console.log("Trying a split of " + s) ;
       if (s.startsWith("<"))
          s = s.substring(1, s.length-1) ;
       var r:Array<string> = [] ;
@@ -57,7 +56,6 @@ export class MoveExpander {
          if (!found)
             return undefined ;
       }
- console.log("Split by face names returned " + r) ;
       return r ;
   }
   expandSlices(rep:string, signMove:SiGNMove, def:KPuzzleDefinition) {
