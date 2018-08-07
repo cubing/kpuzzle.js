@@ -1,10 +1,10 @@
 {
   "name": "kpuzzle",
+  "main": "./dist/kpuzzle.js",
   "version": "0.9.11",
   "description": "Puzzle representation using ksolve's approach.",
   "author": "Lucas Garron <code@garron.net> (https://garron.net/)",
   "license": "MIT",
-  "main": "./dist/kpuzzle.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
     "alg": "^0.9.10"
