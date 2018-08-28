@@ -13,30 +13,129 @@ export const Puzzles: {[key: string]: KPuzzleDefinition} = {
     svg: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.0//EN\"\n       \"http://www.w3.org/TR/2001/REC-SVG-20050904/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 490 370\" preserveAspectRatio=\"xMidYMid meet\">\n  <defs>\n  </defs>\n  <title>222</title>\n  <defs>\n    <g id=\"sticker\">\n        <rect x=\"0\" y=\"0\" width=\"1\" height=\"1\" stroke=\"black\" stroke-width=\"0.04px\" />\n    </g>\n  </defs>\n  <g id=\"puzzle\" transform=\"translate(5, 5) scale(60)\">\n    <use id=\"CORNERS-l0-o0\" xlink:href=\"#sticker\" transform=\"translate(2, 0)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l0-o1\" xlink:href=\"#sticker\" transform=\"translate(7, 2)\" style=\"fill: blue\"/>\n    <use id=\"CORNERS-l0-o2\" xlink:href=\"#sticker\" transform=\"translate(0, 2)\" style=\"fill: orange\"/>\n\n    <use id=\"CORNERS-l1-o0\" xlink:href=\"#sticker\" transform=\"translate(3, 0)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l1-o1\" xlink:href=\"#sticker\" transform=\"translate(5, 2)\" style=\"fill: red\"/>\n    <use id=\"CORNERS-l1-o2\" xlink:href=\"#sticker\" transform=\"translate(6, 2)\" style=\"fill: blue\"/>\n\n    <use id=\"CORNERS-l2-o0\" xlink:href=\"#sticker\" transform=\"translate(3, 1)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l2-o1\" xlink:href=\"#sticker\" transform=\"translate(3, 2)\" style=\"fill: green\"/>\n    <use id=\"CORNERS-l2-o2\" xlink:href=\"#sticker\" transform=\"translate(4, 2)\" style=\"fill: red\"/>\n\n    <use id=\"CORNERS-l3-o0\" xlink:href=\"#sticker\" transform=\"translate(2, 1)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l3-o1\" xlink:href=\"#sticker\" transform=\"translate(1, 2)\" style=\"fill: orange\"/>\n    <use id=\"CORNERS-l3-o2\" xlink:href=\"#sticker\" transform=\"translate(2, 2)\" style=\"fill: green\"/>\n\n    <use id=\"CORNERS-l4-o0\" xlink:href=\"#sticker\" transform=\"translate(3, 5)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l4-o1\" xlink:href=\"#sticker\" transform=\"translate(6, 3)\" style=\"fill: blue\"/>\n    <use id=\"CORNERS-l4-o2\" xlink:href=\"#sticker\" transform=\"translate(5, 3)\" style=\"fill: red\"/>\n\n    <use id=\"CORNERS-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(3, 4)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l5-o1\" xlink:href=\"#sticker\" transform=\"translate(4, 3)\" style=\"fill: red\"/>\n    <use id=\"CORNERS-l5-o2\" xlink:href=\"#sticker\" transform=\"translate(3, 3)\" style=\"fill: green\"/>\n\n    <use id=\"CORNERS-l6-o0\" xlink:href=\"#sticker\" transform=\"translate(2, 4)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l6-o1\" xlink:href=\"#sticker\" transform=\"translate(2, 3)\" style=\"fill: green\"/>\n    <use id=\"CORNERS-l6-o2\" xlink:href=\"#sticker\" transform=\"translate(1, 3)\" style=\"fill: orange\"/>\n\n    <use                    xlink:href=\"#sticker\" transform=\"translate(2, 5)\" style=\"fill: yellow\"/>\n    <use                    xlink:href=\"#sticker\" transform=\"translate(0, 3)\" style=\"fill: orange\"/>\n    <use                    xlink:href=\"#sticker\" transform=\"translate(7, 3)\" style=\"fill: blue\"/>\n  </g>\n\n</svg>"
   },
   "333": {
+
+    // Michael Reid 3x3x3 piece order + centers with orientation
     name: "333",
     orbits: {
-      "CORNERS": {numPieces: 8,  orientations: 3},
-      "EDGES":   {numPieces: 12, orientations: 2}
+      "EDGE":   {"numPieces": 12, "orientations": 2},
+      "CORNER": {"numPieces": 8,  "orientations": 3},
+      "CENTER": {"numPieces": 6,  "orientations": 4}
     },
     startPieces: {
-      "CORNERS": {permutation: [1, 2, 3, 4, 5, 6, 7, 8],                orientation: [0, 0, 0, 0, 0, 0, 0, 0]},
-      "EDGES":   {permutation: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], orientation: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+      "EDGE":   {"permutation": [1,2,3,4,5,6,7,8,9,10,11,12], "orientation": [0,0,0,0,0,0,0,0,0,0,0,0]},
+      "CORNER": {"permutation": [1,2,3,4,5,6,7,8],            "orientation": [0,0,0,0,0,0,0,0]},
+      "CENTER": {"permutation": [1,2,3,4,5,6],                "orientation": [0,0,0,0,0,0]}
     },
     moves: {
-      "U": {"CORNERS": {permutation: [4, 1, 2, 3, 5, 6, 7, 8],                orientation: [0, 0, 0, 0, 0, 0, 0, 0]            },
-            "EDGES":   {permutation: [4, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12], orientation: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}},
-      "R": {"CORNERS": {permutation: [5, 2, 3, 1, 8, 6, 7, 4],                orientation: [1, 0, 0, 2, 2, 0, 0, 1]            },
-            "EDGES":   {permutation: [1, 2, 3, 5, 12, 6, 7, 4, 9, 10, 11, 8], orientation: [0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1]}},
-      "F": {"CORNERS": {permutation: [2, 6, 3, 4, 1, 5, 7, 8],                orientation: [2, 1, 0, 0, 1, 2, 0, 0]            },
-            "EDGES":   {permutation: [6, 2, 3, 4, 1, 9, 7, 8, 5, 10, 11, 12], orientation: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}},
-      "D": {"CORNERS": {permutation: [1, 2, 3, 4, 6, 7, 8, 5],                orientation: [0, 0, 0, 0, 0, 0, 0, 0]            },
-            "EDGES":   {permutation: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 9], orientation: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}},
-      "L": {"CORNERS": {permutation: [1, 3, 7, 4, 5, 2, 6, 8],                orientation: [0, 2, 1, 0, 0, 1, 2, 0]            },
-            "EDGES":   {permutation: [1, 7, 3, 4, 5, 2, 10, 8, 9, 6, 11, 12], orientation: [0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0]}},
-      "B": {"CORNERS": {permutation: [1, 2, 4, 8, 5, 6, 3, 7],                orientation: [0, 0, 2, 1, 0, 0, 1, 2]            },
-            "EDGES":   {permutation: [1, 2, 8, 4, 5, 6, 3, 11, 9, 10, 7, 12], orientation: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}}
+      "U": {
+        "EDGE":   {"permutation": [4,1,2,3,5,6,7,8,9,10,11,12], "orientation": [0,0,0,0,0,0,0,0,0,0,0,0]},
+        "CORNER": {"permutation": [2,3,4,1,5,6,7,8],            "orientation": [0,0,0,0,0,0,0,0]},
+        "CENTER": {"permutation": [1,2,3,4,5,6],                "orientation": [1,0,0,0,0,0]}
+      },
+      "y": {
+        "EDGE":   {"permutation": [4,1,2,3,6,7,8,5,11,9,12,10],"orientation": [0,0,0,0,0,0,0,0,1,1,1,1]},
+        "CORNER": {"permutation": [2,3,4,1,8,5,6,7],           "orientation": [0,0,0,0,0,0,0,0]},
+        "CENTER": {"permutation": [1,3,4,5,2,6],               "orientation": [1,0,0,0,0,3]}
+      },
+      "x": {
+        "EDGE":   {"permutation": [5,10,1,9,7,11,3,12,6,8,4,2], "orientation": [1,0,1,0,1,0,1,0,0,0,0,0]},
+        "CORNER": {"permutation": [5,1,4,6,8,7,3,2],            "orientation": [2,1,2,1,1,2,1,2]},
+        "CENTER": {"permutation": [3,2,6,4,1,5],                "orientation": [0,3,0,1,2,2]}
+      },
+// const moves: {move: string, def: string}[] = [
+//   {move: "L", def: "[y' x: U]"},
+//   {move: "F", def: "[x: U]"},
+//   {move: "R", def: "[y x: U]"},
+//   {move: "B", def: "[x': U]"},
+//   {move: "D", def: "[x2: U]"},
+//   {move: "z", def: "[y: x]"},
+//   {move: "M", def: "R L' x'"},
+//   {move: "E", def: "[z': M]"},
+//   {move: "S", def: "[y': M]"},
+//   {move: "u", def: "D y"},
+//   {move: "l", def: "R x'"},
+//   {move: "f", def: "B z"},
+//   {move: "r", def: "L x"},
+//   {move: "b", def: "F z'"},
+//   {move: "d", def: "U y'"}
+// ];
+      "L": {
+        "EDGE": {"permutation": [1, 12, 3, 4, 5, 6, 7, 10, 9, 2, 11, 8], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [1, 2, 7, 3, 5, 4, 6, 8], "orientation": [0, 0, 2, 1, 0, 2, 1, 0]},
+        "CENTER": {"permutation": [1, 2, 3, 4, 5, 6], "orientation": [0, 1, 0, 0, 0, 0]}
+      },
+      "F": {
+        "EDGE": {"permutation": [10, 2, 3, 4, 9, 6, 7, 8, 1, 5, 11, 12], "orientation": [1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0]},
+        "CORNER": {"permutation": [4, 2, 3, 6, 1, 5, 7, 8], "orientation": [1, 0, 0, 2, 2, 1, 0, 0]},
+        "CENTER": {"permutation": [1, 2, 3, 4, 5, 6], "orientation": [0, 0, 1, 0, 0, 0]}
+      },
+      "R": {
+        "EDGE": {"permutation": [1, 2, 3, 9, 5, 11, 7, 8, 6, 10, 4, 12], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [5, 1, 3, 4, 8, 6, 7, 2], "orientation": [2, 1, 0, 0, 1, 0, 0, 2]},
+        "CENTER": {"permutation": [1, 2, 3, 4, 5, 6], "orientation": [0, 0, 0, 1, 0, 0]}
+      },
+      "B": {
+        "EDGE": {"permutation": [1, 2, 11, 4, 5, 6, 12, 8, 9, 10, 7, 3], "orientation": [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1]},
+        "CORNER": {"permutation": [1, 8, 2, 4, 5, 6, 3, 7], "orientation": [0, 2, 1, 0, 0, 0, 2, 1]},
+        "CENTER": {"permutation": [1, 2, 3, 4, 5, 6], "orientation": [0, 0, 0, 0, 1, 0]}
+      },
+      "D": {
+        "EDGE": {"permutation": [1, 2, 3, 4, 8, 5, 6, 7, 9, 10, 11, 12], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [1, 2, 3, 4, 6, 7, 8, 5], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [1, 2, 3, 4, 5, 6], "orientation": [0, 0, 0, 0, 0, 1]}
+      },
+      "z": {
+        "EDGE": {"permutation": [9, 4, 11, 6, 10, 8, 12, 2, 5, 1, 7, 3], "orientation": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]},
+        "CORNER": {"permutation": [5, 8, 2, 1, 6, 4, 3, 7], "orientation": [1, 2, 1, 2, 2, 1, 2, 1]},
+        "CENTER": {"permutation": [4, 1, 3, 6, 5, 2], "orientation": [3, 3, 3, 3, 1, 3]}
+      },
+      "M": {
+        "EDGE": {"permutation": [3, 2, 7, 4, 1, 6, 5, 8, 9, 10, 11, 12], "orientation": [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [1, 2, 3, 4, 5, 6, 7, 8], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [5, 2, 1, 4, 6, 3], "orientation": [2, 0, 0, 0, 2, 0]}
+      },
+      "E": {
+        "EDGE": {"permutation": [1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 9, 11], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]},
+        "CORNER": {"permutation": [1, 2, 3, 4, 5, 6, 7, 8], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [1, 5, 2, 3, 4, 6], "orientation": [0, 0, 0, 0, 0, 0]}
+      },
+      "S": {
+        "EDGE": {"permutation": [1, 8, 3, 2, 5, 4, 7, 6, 9, 10, 11, 12], "orientation": [0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [1, 2, 3, 4, 5, 6, 7, 8], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [2, 6, 3, 1, 5, 4], "orientation": [1, 1, 0, 1, 0, 1]}
+      },
+      "u": {
+        "EDGE": {"permutation": [4, 1, 2, 3, 5, 6, 7, 8, 11, 9, 12, 10], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]},
+        "CORNER": {"permutation": [2, 3, 4, 1, 5, 6, 7, 8], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [1, 3, 4, 5, 2, 6], "orientation": [1, 0, 0, 0, 0, 0]}
+      },
+      "l": {
+        "EDGE": {"permutation": [3, 12, 7, 4, 1, 6, 5, 10, 9, 2, 11, 8], "orientation": [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [1, 2, 7, 3, 5, 4, 6, 8], "orientation": [0, 0, 2, 1, 0, 2, 1, 0]},
+        "CENTER": {"permutation": [5, 2, 1, 4, 6, 3], "orientation": [2, 1, 0, 0, 2, 0]}
+      },
+      "f": {
+        "EDGE": {"permutation": [9, 4, 7, 6, 10, 8, 3, 2, 5, 1, 12, 11], "orientation": [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]},
+        "CORNER": {"permutation": [5, 7, 8, 1, 6, 4, 2, 3], "orientation": [1, 0, 0, 2, 2, 1, 0, 0]},
+        "CENTER": {"permutation": [4, 1, 3, 6, 5, 2], "orientation": [3, 3, 3, 3, 2, 3]}
+      },
+      "r": {
+        "EDGE": {"permutation": [5, 2, 1, 9, 7, 11, 3, 8, 6, 10, 4, 12], "orientation": [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]},
+        "CORNER": {"permutation": [5, 1, 3, 4, 8, 6, 7, 2], "orientation": [2, 1, 0, 0, 1, 0, 0, 2]},
+        "CENTER": {"permutation": [3, 2, 6, 4, 1, 5], "orientation": [0, 0, 0, 1, 2, 2]}
+      },
+      "b": {
+        "EDGE": {"permutation": [5, 8, 12, 2, 1, 4, 11, 6, 10, 9, 3, 7], "orientation": [0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1]},
+        "CORNER": {"permutation": [6, 3, 7, 5, 4, 1, 8, 2], "orientation": [0, 2, 1, 0, 0, 0, 2, 1]},
+        "CENTER": {"permutation": [2, 6, 3, 1, 5, 4], "orientation": [1, 1, 2, 1, 3, 1]}
+      },
+      "d": {
+        "EDGE": {"permutation": [1, 2, 3, 4, 8, 5, 6, 7, 10, 12, 9, 11], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]},
+        "CORNER": {"permutation": [1, 2, 3, 4, 6, 7, 8, 5], "orientation": [0, 0, 0, 0, 0, 0, 0, 0]},
+        "CENTER": {"permutation": [1, 5, 2, 3, 4, 6], "orientation": [0, 0, 0, 0, 0, 1]}
+      }
     },
-    svg: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.0//EN\"\n       \"http://www.w3.org/TR/2001/REC-SVG-20050904/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 490 370\" preserveAspectRatio=\"xMidYMid meet\">\n  <defs>\n  </defs>\n  <title>333</title>\n  <defs>\n    <g id=\"sticker\">\n        <rect x=\"0\" y=\"0\" width=\"1\" height=\"1\" stroke=\"black\" stroke-width=\"0.04px\" />\n    </g>\n  </defs>\n\n<!--        0 1 2 3 4 5 6 7 8 9 10 11  -->\n<!--        | | | | | | | | | | | |<-  -->\n<!--    0 -       . . .                -->\n<!--    1 -       . . .                -->\n<!--    2 -       . . .                -->\n<!--    3 - . . . . . . . . . . . .    -->\n<!--    4 - . . . . . . . . . . . .    -->\n<!--    5 - . . . . . . . . . . . .    -->\n<!--    6 -       . . .                -->\n<!--    7 -       . . .                -->\n<!--    8 -       . . .                -->\n\n  <g id=\"puzzle\" transform=\"translate(5, 5) scale(40)\">\n    <!-- CORNERS -->\n    <use id=\"CORNERS-l0-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  2)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l0-o1\" xlink:href=\"#sticker\" transform=\"translate(5,  3)\" style=\"fill: green\"/>\n    <use id=\"CORNERS-l0-o2\" xlink:href=\"#sticker\" transform=\"translate(6,  3)\" style=\"fill: red\"/>\n\n    <use id=\"CORNERS-l1-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  2)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l1-o1\" xlink:href=\"#sticker\" transform=\"translate(2,  3)\" style=\"fill: orange\"/>\n    <use id=\"CORNERS-l1-o2\" xlink:href=\"#sticker\" transform=\"translate(3,  3)\" style=\"fill: green\"/>\n\n    <use id=\"CORNERS-l2-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  0)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l2-o1\" xlink:href=\"#sticker\" transform=\"translate(11, 3)\" style=\"fill: blue\"/>\n    <use id=\"CORNERS-l2-o2\" xlink:href=\"#sticker\" transform=\"translate(0,  3)\" style=\"fill: orange\"/>\n\n    <use id=\"CORNERS-l3-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  0)\" style=\"fill: white\"/>\n    <use id=\"CORNERS-l3-o1\" xlink:href=\"#sticker\" transform=\"translate(8,  3)\" style=\"fill: red\"/>\n    <use id=\"CORNERS-l3-o2\" xlink:href=\"#sticker\" transform=\"translate(9,  3)\" style=\"fill: blue\"/>\n\n    <use id=\"CORNERS-l4-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  6)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l4-o1\" xlink:href=\"#sticker\" transform=\"translate(6,  5)\" style=\"fill: red\"/>\n    <use id=\"CORNERS-l4-o2\" xlink:href=\"#sticker\" transform=\"translate(5,  5)\" style=\"fill: green\"/>\n\n    <use id=\"CORNERS-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  6)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l5-o1\" xlink:href=\"#sticker\" transform=\"translate(3,  5)\" style=\"fill: green\"/>\n    <use id=\"CORNERS-l5-o2\" xlink:href=\"#sticker\" transform=\"translate(2,  5)\" style=\"fill: orange\"/>\n\n    <use id=\"CORNERS-l6-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  8)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l6-o1\" xlink:href=\"#sticker\" transform=\"translate(0,  5)\" style=\"fill: orange\"/>\n    <use id=\"CORNERS-l6-o2\" xlink:href=\"#sticker\" transform=\"translate(11, 5)\" style=\"fill: blue\"/>\n\n    <use id=\"CORNERS-l7-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  8)\" style=\"fill: yellow\"/>\n    <use id=\"CORNERS-l7-o1\" xlink:href=\"#sticker\" transform=\"translate(9,  5)\" style=\"fill: blue\"/>\n    <use id=\"CORNERS-l7-o2\" xlink:href=\"#sticker\" transform=\"translate(8,  5)\" style=\"fill: red\"/>\n\n    <!-- EDGES -->\n    <use id=\"EDGES-l0-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  2)\" style=\"fill: white\"/>\n    <use id=\"EDGES-l0-o1\"  xlink:href=\"#sticker\" transform=\"translate(4,  3)\" style=\"fill: green\"/>\n\n    <use id=\"EDGES-l1-o0\"  xlink:href=\"#sticker\" transform=\"translate(3,  1)\" style=\"fill: white\"/>\n    <use id=\"EDGES-l1-o1\"  xlink:href=\"#sticker\" transform=\"translate(1,  3)\" style=\"fill: orange\"/>\n\n    <use id=\"EDGES-l2-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  0)\" style=\"fill: white\"/>\n    <use id=\"EDGES-l2-o1\"  xlink:href=\"#sticker\" transform=\"translate(10, 3)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGES-l3-o0\"  xlink:href=\"#sticker\" transform=\"translate(5,  1)\" style=\"fill: white\"/>\n    <use id=\"EDGES-l3-o1\"  xlink:href=\"#sticker\" transform=\"translate(7,  3)\" style=\"fill: red\"/>\n\n    <use id=\"EDGES-l4-o0\"  xlink:href=\"#sticker\" transform=\"translate(6,  4)\" style=\"fill: red\"/>\n    <use id=\"EDGES-l4-o1\"  xlink:href=\"#sticker\" transform=\"translate(5,  4)\" style=\"fill: green\"/>\n\n    <use id=\"EDGES-l5-o0\"  xlink:href=\"#sticker\" transform=\"translate(2,  4)\" style=\"fill: orange\"/>\n    <use id=\"EDGES-l5-o1\"  xlink:href=\"#sticker\" transform=\"translate(3,  4)\" style=\"fill: green\"/>\n\n    <use id=\"EDGES-l6-o0\"  xlink:href=\"#sticker\" transform=\"translate(0,  4)\" style=\"fill: orange\"/>\n    <use id=\"EDGES-l6-o1\"  xlink:href=\"#sticker\" transform=\"translate(11, 4)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGES-l7-o0\"  xlink:href=\"#sticker\" transform=\"translate(8,  4)\" style=\"fill: red\"/>\n    <use id=\"EDGES-l7-o1\"  xlink:href=\"#sticker\" transform=\"translate(9,  4)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGES-l8-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  6)\" style=\"fill: yellow\"/>\n    <use id=\"EDGES-l8-o1\"  xlink:href=\"#sticker\" transform=\"translate(4,  5)\" style=\"fill: green\"/>\n\n    <use id=\"EDGES-l9-o0\"  xlink:href=\"#sticker\" transform=\"translate(3,  7)\" style=\"fill: yellow\"/>\n    <use id=\"EDGES-l9-o1\"  xlink:href=\"#sticker\" transform=\"translate(1,  5)\" style=\"fill: orange\"/>\n\n    <use id=\"EDGES-l10-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  8)\" style=\"fill: yellow\"/>\n    <use id=\"EDGES-l10-o1\" xlink:href=\"#sticker\" transform=\"translate(10, 5)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGES-l11-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  7)\" style=\"fill: yellow\"/>\n    <use id=\"EDGES-l11-o1\" xlink:href=\"#sticker\" transform=\"translate(7,  5)\" style=\"fill: red\"/>\n\n    <!-- CENTERS -->\n    <use id=\"CENTERS-l0-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  1)\" style=\"fill: white\"/>\n    <use id=\"CENTERS-l1-o0\" xlink:href=\"#sticker\" transform=\"translate(1,  4)\" style=\"fill: orange\"/>\n    <use id=\"CENTERS-l2-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  4)\" style=\"fill: green\"/>\n    <use id=\"CENTERS-l3-o0\" xlink:href=\"#sticker\" transform=\"translate(7,  4)\" style=\"fill: red\"/>\n    <use id=\"CENTERS-l4-o0\" xlink:href=\"#sticker\" transform=\"translate(10, 4)\" style=\"fill: blue\"/>\n    <use id=\"CENTERS-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  7)\" style=\"fill: yellow\"/>\n  </g>\n\n</svg>"
+    svg: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.0//EN\"\n       \"http://www.w3.org/TR/2001/REC-SVG-20050904/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 490 370\" preserveAspectRatio=\"xMidYMid meet\">\n  <defs>\n  </defs>\n  <title>333</title>\n  <defs>\n    <g id=\"sticker\">\n        <rect x=\"0\" y=\"0\" width=\"1\" height=\"1\" stroke=\"black\" stroke-width=\"0.04px\" />\n    </g>\n  </defs>\n\n<!--        0 1 2 3 4 5 6 7 8 9 10 11  -->\n<!--        | | | | | | | | | | | |<-  -->\n<!--    0 -       . . .                -->\n<!--    1 -       . . .                -->\n<!--    2 -       . . .                -->\n<!--    3 - . . . . . . . . . . . .    -->\n<!--    4 - . . . . . . . . . . . .    -->\n<!--    5 - . . . . . . . . . . . .    -->\n<!--    6 -       . . .                -->\n<!--    7 -       . . .                -->\n<!--    8 -       . . .                -->\n\n  <g id=\"puzzle\" transform=\"translate(5, 5) scale(40)\">\n    <!-- CORNER -->\n    <use id=\"CORNER-l0-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  2)\" style=\"fill: white\"/>\n    <use id=\"CORNER-l0-o1\" xlink:href=\"#sticker\" transform=\"translate(6,  3)\" style=\"fill: red\"/>\n    <use id=\"CORNER-l0-o2\" xlink:href=\"#sticker\" transform=\"translate(5,  3)\" style=\"fill: green\"/>\n\n    <use id=\"CORNER-l1-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  0)\" style=\"fill: white\"/>\n    <use id=\"CORNER-l1-o1\" xlink:href=\"#sticker\" transform=\"translate(9,  3)\" style=\"fill: blue\"/>\n    <use id=\"CORNER-l1-o2\" xlink:href=\"#sticker\" transform=\"translate(8,  3)\" style=\"fill: red\"/>\n\n    <use id=\"CORNER-l2-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  0)\" style=\"fill: white\"/>\n    <use id=\"CORNER-l2-o1\" xlink:href=\"#sticker\" transform=\"translate(0,  3)\" style=\"fill: orange\"/>\n    <use id=\"CORNER-l2-o2\" xlink:href=\"#sticker\" transform=\"translate(11, 3)\" style=\"fill: blue\"/>\n\n    <use id=\"CORNER-l3-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  2)\" style=\"fill: white\"/>\n    <use id=\"CORNER-l3-o1\" xlink:href=\"#sticker\" transform=\"translate(3,  3)\" style=\"fill: green\"/>\n    <use id=\"CORNER-l3-o2\" xlink:href=\"#sticker\" transform=\"translate(2,  3)\" style=\"fill: orange\"/>\n\n    <use id=\"CORNER-l4-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  6)\" style=\"fill: yellow\"/>\n    <use id=\"CORNER-l4-o1\" xlink:href=\"#sticker\" transform=\"translate(5,  5)\" style=\"fill: green\"/>\n    <use id=\"CORNER-l4-o2\" xlink:href=\"#sticker\" transform=\"translate(6,  5)\" style=\"fill: red\"/>\n\n    <use id=\"CORNER-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  6)\" style=\"fill: yellow\"/>\n    <use id=\"CORNER-l5-o1\" xlink:href=\"#sticker\" transform=\"translate(2,  5)\" style=\"fill: orange\"/>\n    <use id=\"CORNER-l5-o2\" xlink:href=\"#sticker\" transform=\"translate(3,  5)\" style=\"fill: green\"/>\n\n    <use id=\"CORNER-l6-o0\" xlink:href=\"#sticker\" transform=\"translate(3,  8)\" style=\"fill: yellow\"/>\n    <use id=\"CORNER-l6-o1\" xlink:href=\"#sticker\" transform=\"translate(11, 5)\" style=\"fill: blue\"/>\n    <use id=\"CORNER-l6-o2\" xlink:href=\"#sticker\" transform=\"translate(0, 5)\"  style=\"fill: orange\"/>\n\n    <use id=\"CORNER-l7-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  8)\" style=\"fill: yellow\"/>\n    <use id=\"CORNER-l7-o1\" xlink:href=\"#sticker\" transform=\"translate(8,  5)\" style=\"fill: red\"/>\n    <use id=\"CORNER-l7-o2\" xlink:href=\"#sticker\" transform=\"translate(9,  5)\" style=\"fill: blue\"/>\n\n    <!-- EDGE -->\n    <use id=\"EDGE-l0-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  2)\" style=\"fill: white\"/>\n    <use id=\"EDGE-l0-o1\"  xlink:href=\"#sticker\" transform=\"translate(4,  3)\" style=\"fill: green\"/>\n\n    <use id=\"EDGE-l1-o0\"  xlink:href=\"#sticker\" transform=\"translate(3,  1)\" style=\"fill: white\"/>\n    <use id=\"EDGE-l1-o1\"  xlink:href=\"#sticker\" transform=\"translate(1,  3)\" style=\"fill: orange\"/>\n\n    <use id=\"EDGE-l2-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  0)\" style=\"fill: white\"/>\n    <use id=\"EDGE-l2-o1\"  xlink:href=\"#sticker\" transform=\"translate(10, 3)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGE-l3-o0\"  xlink:href=\"#sticker\" transform=\"translate(5,  1)\" style=\"fill: white\"/>\n    <use id=\"EDGE-l3-o1\"  xlink:href=\"#sticker\" transform=\"translate(7,  3)\" style=\"fill: red\"/>\n\n    <use id=\"EDGE-l4-o0\"  xlink:href=\"#sticker\" transform=\"translate(4,  6)\" style=\"fill: yellow\"/>\n    <use id=\"EDGE-l4-o1\"  xlink:href=\"#sticker\" transform=\"translate(4,  5)\" style=\"fill: green\"/>\n\n    <use id=\"EDGE-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(5,  7)\" style=\"fill: yellow\"/>\n    <use id=\"EDGE-l5-o1\" xlink:href=\"#sticker\" transform=\"translate(7,  5)\" style=\"fill: red\"/>\n\n    <use id=\"EDGE-l6-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  8)\" style=\"fill: yellow\"/>\n    <use id=\"EDGE-l6-o1\" xlink:href=\"#sticker\" transform=\"translate(10, 5)\" style=\"fill: blue\"/>\n\n    <use id=\"EDGE-l7-o0\"  xlink:href=\"#sticker\" transform=\"translate(3,  7)\" style=\"fill: yellow\"/>\n    <use id=\"EDGE-l7-o1\"  xlink:href=\"#sticker\" transform=\"translate(1,  5)\" style=\"fill: orange\"/>\n\n    <use id=\"EDGE-l8-o0\"  xlink:href=\"#sticker\" transform=\"translate(5,  4)\" style=\"fill: green\"/>\n    <use id=\"EDGE-l8-o1\"  xlink:href=\"#sticker\" transform=\"translate(6,  4)\" style=\"fill: red\"/>\n\n    <use id=\"EDGE-l9-o0\"  xlink:href=\"#sticker\" transform=\"translate(3,  4)\" style=\"fill: green\"/>\n    <use id=\"EDGE-l9-o1\"  xlink:href=\"#sticker\" transform=\"translate(2,  4)\" style=\"fill: orange\"/>\n\n    <use id=\"EDGE-l10-o0\" xlink:href=\"#sticker\" transform=\"translate(9,  4)\" style=\"fill: blue\"/>\n    <use id=\"EDGE-l10-o1\" xlink:href=\"#sticker\" transform=\"translate(8,  4)\" style=\"fill: red\"/>\n\n    <use id=\"EDGE-l11-o0\" xlink:href=\"#sticker\" transform=\"translate(11, 4)\" style=\"fill: blue\"/>\n    <use id=\"EDGE-l11-o1\" xlink:href=\"#sticker\" transform=\"translate(0,  4)\" style=\"fill: orange\"/>\n\n    <!-- CENTER -->\n    <!-- TODO: Allow the same sticker to be reused for multiple orientations -->\n    <use id=\"CENTER-l0-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  1)\" style=\"fill: white\"/>\n    <use id=\"CENTER-l0-o1\" xlink:href=\"#sticker\" transform=\"translate(4,  1)\" style=\"fill: white\"/>\n    <use id=\"CENTER-l0-o2\" xlink:href=\"#sticker\" transform=\"translate(4,  1)\" style=\"fill: white\"/>\n    <use id=\"CENTER-l0-o3\" xlink:href=\"#sticker\" transform=\"translate(4,  1)\" style=\"fill: white\"/>\n\n    <use id=\"CENTER-l1-o0\" xlink:href=\"#sticker\" transform=\"translate(1,  4)\" style=\"fill: orange\"/>\n    <use id=\"CENTER-l1-o1\" xlink:href=\"#sticker\" transform=\"translate(1,  4)\" style=\"fill: orange\"/>\n    <use id=\"CENTER-l1-o2\" xlink:href=\"#sticker\" transform=\"translate(1,  4)\" style=\"fill: orange\"/>\n    <use id=\"CENTER-l1-o3\" xlink:href=\"#sticker\" transform=\"translate(1,  4)\" style=\"fill: orange\"/>\n\n    <use id=\"CENTER-l2-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  4)\" style=\"fill: green\"/>\n    <use id=\"CENTER-l2-o1\" xlink:href=\"#sticker\" transform=\"translate(4,  4)\" style=\"fill: green\"/>\n    <use id=\"CENTER-l2-o2\" xlink:href=\"#sticker\" transform=\"translate(4,  4)\" style=\"fill: green\"/>\n    <use id=\"CENTER-l2-o3\" xlink:href=\"#sticker\" transform=\"translate(4,  4)\" style=\"fill: green\"/>\n\n    <use id=\"CENTER-l3-o0\" xlink:href=\"#sticker\" transform=\"translate(7,  4)\" style=\"fill: red\"/>\n    <use id=\"CENTER-l3-o1\" xlink:href=\"#sticker\" transform=\"translate(7,  4)\" style=\"fill: red\"/>\n    <use id=\"CENTER-l3-o2\" xlink:href=\"#sticker\" transform=\"translate(7,  4)\" style=\"fill: red\"/>\n    <use id=\"CENTER-l3-o3\" xlink:href=\"#sticker\" transform=\"translate(7,  4)\" style=\"fill: red\"/>\n\n    <use id=\"CENTER-l4-o0\" xlink:href=\"#sticker\" transform=\"translate(10, 4)\" style=\"fill: blue\"/>\n    <use id=\"CENTER-l4-o1\" xlink:href=\"#sticker\" transform=\"translate(10, 4)\" style=\"fill: blue\"/>\n    <use id=\"CENTER-l4-o2\" xlink:href=\"#sticker\" transform=\"translate(10, 4)\" style=\"fill: blue\"/>\n    <use id=\"CENTER-l4-o3\" xlink:href=\"#sticker\" transform=\"translate(10, 4)\" style=\"fill: blue\"/>\n\n    <use id=\"CENTER-l5-o0\" xlink:href=\"#sticker\" transform=\"translate(4,  7)\" style=\"fill: yellow\"/>\n    <use id=\"CENTER-l5-o1\" xlink:href=\"#sticker\" transform=\"translate(4,  7)\" style=\"fill: yellow\"/>\n    <use id=\"CENTER-l5-o2\" xlink:href=\"#sticker\" transform=\"translate(4,  7)\" style=\"fill: yellow\"/>\n    <use id=\"CENTER-l5-o3\" xlink:href=\"#sticker\" transform=\"translate(4,  7)\" style=\"fill: yellow\"/>\n  </g>\n\n</svg>\n"
   },
   "pyram": {
     name: "pyram",
