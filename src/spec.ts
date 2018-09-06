@@ -1,4 +1,4 @@
-import {MoveExpander} from "./moveexpander"
+import {MoveExpander} from "./move-expander"
 
 // TODO: Properly handle freezing
 export interface OrbitTransformation {

@@ -1,6 +1,6 @@
 import {SiGNMove, algToString, Sequence} from "alg"
 import {OrbitTransformation, Transformation, OrbitDefinition, KPuzzleDefinition} from "./spec"
-import {MoveExpander} from "./moveexpander"
+import {MoveExpander} from "./move-expander"
 
 export function Combine(def: KPuzzleDefinition, t1: Transformation, t2: Transformation): Transformation {
   var newTrans: Transformation = <Transformation>{};
