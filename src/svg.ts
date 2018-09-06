@@ -103,14 +103,14 @@ export class SVG {
           var id = this.elementID(orbitName, idx, orientation);
           var fromCur = this.elementID(
             orbitName,
-            curOrbitState.permutation[idx] - 1,
+            curOrbitState.permutation[idx],
             (orbitDefinition.orientations - curOrbitState.orientation[idx] + orientation) % orbitDefinition.orientations
           );
           var singleColor = false;
           if (nextOrbitState) {
             var fromNext = this.elementID(
               orbitName,
-              nextOrbitState.permutation[idx] - 1,
+              nextOrbitState.permutation[idx],
               (orbitDefinition.orientations - nextOrbitState.orientation[idx] + orientation) % orbitDefinition.orientations
             );
             if (fromCur === fromNext) {

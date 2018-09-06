@@ -62,16 +62,21 @@ NUMBERS
         {$$ = $NUMBERS.concat([parseInt($INTEGER)]);}
     ;
 
+PERMUTATION
+    : NUMBERS
+        {$$ = $NUMBERS.map(function(x) {return x - 1;});}
+    ;
+
 DEFINITION
-    : SET_IDENTIFIER NEWLINE NUMBERS NEWLINE
+    : SET_IDENTIFIER NEWLINE PERMUTATION NEWLINE
         {
-            $$ = [$SET_IDENTIFIER, {permutation: $NUMBERS, orientation: []}];
-            for (var i = 0; i < $NUMBERS.length; i++) {
+            $$ = [$SET_IDENTIFIER, {permutation: $PERMUTATION, orientation: []}];
+            for (var i = 0; i < $PERMUTATION.length; i++) {
                 $$[1].orientation.push(0);
             }
         }
-    | SET_IDENTIFIER NEWLINE NUMBERS NEWLINE NUMBERS NEWLINE
-        {$$ = [$SET_IDENTIFIER, {permutation: $3, orientation: $5}];}
+    | SET_IDENTIFIER NEWLINE PERMUTATION NEWLINE NUMBERS NEWLINE
+        {$$ = [$SET_IDENTIFIER, {permutation: $PERMUTATION, orientation: $NUMBERS}];}
     ;
 
 DEFINITIONS

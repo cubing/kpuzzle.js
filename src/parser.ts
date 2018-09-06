@@ -10,7 +10,7 @@ function FixMoves(def: KPuzzleDefinition) {
          var perm = moveOrbit.permutation ;
          var newOrientation = new Array(oldOrientation.length) ;
          for (var i=0; i<perm.length; i++)
-            newOrientation[i] = oldOrientation[perm[i]-1] ;
+            newOrientation[i] = oldOrientation[perm[i]] ;
          moveOrbit.orientation = newOrientation ;
       }
    }

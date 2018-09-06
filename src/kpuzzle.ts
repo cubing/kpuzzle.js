@@ -34,10 +34,9 @@ export function Combine(def: KPuzzleDefinition, t1: Transformation, t2: Transfor
     var newPerm = new Array(oDef.numPieces);
     var newOri = new Array(oDef.numPieces);
     for (var idx = 0; idx < oDef.numPieces; idx++) {
-      // We subtract 1 to translate from location to index.
-      newOri[idx] = (o1.orientation[o2.permutation[idx]-1] + o2.orientation[idx])
+      newOri[idx] = (o1.orientation[o2.permutation[idx]] + o2.orientation[idx])
                                                          % oDef.orientations ;
-      newPerm[idx] = o1.permutation[o2.permutation[idx]-1] ;
+      newPerm[idx] = o1.permutation[o2.permutation[idx]] ;
     }
     newTrans[orbitName] = {permutation: newPerm, orientation: newOri};
   }
@@ -89,8 +88,8 @@ export function Invert(def: KPuzzleDefinition, t: Transformation): Transformatio
     var newPerm = new Array(oDef.numPieces);
     var newOri = new Array(oDef.numPieces);
     for (var idx = 0; idx < oDef.numPieces; idx++) {
-      var fromIdx = (o.permutation[idx] as number) - 1;
-      newPerm[fromIdx] = idx + 1;
+      var fromIdx = (o.permutation[idx] as number);
+      newPerm[fromIdx] = idx;
       newOri[fromIdx] = (oDef.orientations - o.orientation[idx]) % oDef.orientations;
     }
     newTrans[orbitName] = {permutation: newPerm, orientation: newOri};
