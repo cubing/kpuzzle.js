@@ -1,28 +1,6 @@
 import {SiGNMove, algToString, Sequence} from "alg"
+import {OrbitTransformation, Transformation, OrbitDefinition, KPuzzleDefinition} from "./spec"
 import {MoveExpander} from "./moveexpander"
-// TODO: Properly handle freezing
-export class OrbitTransformation {
-  permutation: number[]
-  orientation: number[]
-}
-// TODO: Use a list instead of an object for performance?
-export class Transformation {
-  [/* orbit name */key: string]: OrbitTransformation
-}
-
-export class OrbitDefinition {
-  numPieces: number
-  orientations: number
-}
-
-export class KPuzzleDefinition {
-  name: string
-  orbits: {[/* orbit name */key: string]: OrbitDefinition}
-  startPieces: Transformation // TODO: Expose a way to get the transformed start pieces.
-  moves: {[/* move name */key: string]: Transformation}
-  svg?: string
-  moveExpander?: MoveExpander ;
-}
 
 export function Combine(def: KPuzzleDefinition, t1: Transformation, t2: Transformation): Transformation {
   var newTrans: Transformation = <Transformation>{};

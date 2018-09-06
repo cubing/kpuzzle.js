@@ -1,5 +1,6 @@
 import {SiGNMove, parse} from "alg"
-import {KPuzzleDefinition, Invert, Combine, Transformation} from "./kpuzzle"
+import {Invert, Combine} from "./kpuzzle"
+import {KPuzzleDefinition, Transformation} from "./spec"
 //   This class supports expanding a set of slice moves (for instance,
 //   U, 2U, 3U, 2D, D on the 5x5x5) into a full set of outer block, inner
 //   slice, etc. moves such as 2-3u or 5U, automatically.  The addGrip()

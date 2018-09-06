@@ -1,12 +1,15 @@
 export {
   KPuzzleDefinition,
+  Transformation,
+} from "./spec"
+
+export {
   Combine,
   Multiply,
   IdentityTransformation,
   Invert,
   EquivalentTransformations,
   EquivalentStates,
-  Transformation,
   KPuzzle,
   stateForSiGNMove
 } from "./kpuzzle"

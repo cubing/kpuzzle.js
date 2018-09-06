@@ -1,4 +1,4 @@
-import {KPuzzleDefinition} from "./kpuzzle"
+import {KPuzzleDefinition} from "./spec"
 import {parse as jison_parse} from "./jison_parser";
 
 function FixMoves(def: KPuzzleDefinition) {
