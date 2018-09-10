@@ -28,7 +28,6 @@ export class SVG {
     this.element.classList.add("svg-wrapper");
     // TODO: Sanitization.
     this.element.innerHTML = kPuzzleDefinition.svg;
-    document.body.appendChild(this.element);
 
     var svgElem = this.element.querySelector("svg");
     if (!svgElem) {
