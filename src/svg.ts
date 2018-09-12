@@ -88,6 +88,7 @@ export class SVG {
     return this.element.querySelector("#" + id) as HTMLElement;
   }
 
+  // TODO: save definition in the constructor?
   draw(definition: KPuzzleDefinition, state: Transformation, nextState?: Transformation, fraction?: number) {
     for (var orbitName in definition.orbits) {
       var orbitDefinition = definition.orbits[orbitName];
