@@ -1,4 +1,4 @@
-import {SiGNMove, parse} from "alg"
+import {BlockMove, parse} from "alg"
 import {Invert, Combine} from "./kpuzzle"
 import {KPuzzleDefinition, Transformation} from "./spec"
 //   This class supports expanding a set of slice moves (for instance,
@@ -57,12 +57,12 @@ export class MoveExpander {
       }
       return r ;
   }
-  expandSlices(rep:string, signMove:SiGNMove, def:KPuzzleDefinition) {
+  expandSlices(rep:string, blockMove:BlockMove, def:KPuzzleDefinition) {
      var t = this.moveStash[rep] ;
      if (t)
         return t ;
      var axes = this.gripStash ;
-     var family = signMove.family ;
+     var family = blockMove.family ;
      var grip = family ;
      var isBlock = false ;
      // the following "reparse" code is almost certainly wrong
@@ -92,8 +92,8 @@ export class MoveExpander {
      }
      if (!slices)
         return undefined ; // don't throw here; let others catch it
-     var outer = signMove.outerLayer ;
-     var inner = signMove.innerLayer ;
+     var outer = blockMove.outerLayer ;
+     var inner = blockMove.innerLayer ;
      if (inner == undefined) {
         if (outer == undefined) {
            outer = 1 ;
@@ -120,7 +120,7 @@ export class MoveExpander {
         var alg = parse(mv) ;
         if (alg.nestedUnits.length != 1)
            return undefined ;
-        var signmove = alg.nestedUnits[0] as SiGNMove ; // need better way
+        var signmove = alg.nestedUnits[0] as BlockMove ; // need better way
         return this.expandSlices(mv, signmove, def) ;
      } catch (e) {
         return undefined ;

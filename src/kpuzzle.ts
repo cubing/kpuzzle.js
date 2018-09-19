@@ -1,4 +1,4 @@
-import {SiGNMove, algToString, Sequence} from "alg"
+import {BlockMove, algToString, Sequence} from "alg"
 import {OrbitTransformation, Transformation, OrbitDefinition, KPuzzleDefinition} from "./spec"
 import {MoveExpander} from "./move-expander"
 
@@ -104,17 +104,17 @@ export function EquivalentStates(def: KPuzzleDefinition, t1: Transformation, t2:
 }
 
 // TODO: Move other helpers into the definition.
-export function stateForSiGNMove(def: KPuzzleDefinition, signMove: SiGNMove) {
+export function stateForBlockMove(def: KPuzzleDefinition, blockMove: BlockMove) {
   // TODO: Optimize this.
-  var repMoveString = algToString(new Sequence([new SiGNMove(signMove.outerLayer, signMove.innerLayer, signMove.family, 1)]));
+  var repMoveString = algToString(new Sequence([new BlockMove(blockMove.outerLayer, blockMove.innerLayer, blockMove.family, 1)]));
   var move:Transformation|undefined = def.moves[repMoveString];
   if (!move) {
-      move = new KPuzzle(def).expandSlices(repMoveString, signMove) ;
+      move = new KPuzzle(def).expandSlices(repMoveString, blockMove) ;
   }
   if (!move) {
-    throw `Unknown move family: ${signMove.family}`
+    throw `Unknown move family: ${blockMove.family}`
   }
-  return Multiply(def, move, signMove.amount);
+  return Multiply(def, move, blockMove.amount);
 }
 
 export class KPuzzle {
@@ -134,8 +134,8 @@ export class KPuzzle {
     return output;
   }
 
-  applySiGNMove(signMove: SiGNMove) {
-    this.state = Combine(this.definition, this.state, stateForSiGNMove(this.definition, signMove));
+  applyBlockMove(blockMove: BlockMove) {
+    this.state = Combine(this.definition, this.state, stateForBlockMove(this.definition, blockMove));
   }
 
   applyMove(moveName: string): this {
@@ -168,9 +168,9 @@ export class KPuzzle {
      var me = this.getMoveExpander(true) ;
      return me ? me.addGrip(grip1, grip2, nslices, this.definition) : undefined ;
   }
-  expandSlices(rep:string, signMove:SiGNMove):Transformation|undefined {
+  expandSlices(rep:string, blockMove:BlockMove):Transformation|undefined {
      var me = this.getMoveExpander(false) ;
-     return me ? me.expandSlices(rep, signMove, this.definition) : undefined ;
+     return me ? me.expandSlices(rep, blockMove, this.definition) : undefined ;
   }
   expandSlicesByName(mv:string):Transformation|undefined {
      var me = this.getMoveExpander(false) ;

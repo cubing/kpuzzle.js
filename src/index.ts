@@ -11,7 +11,7 @@ export {
   EquivalentTransformations,
   EquivalentStates,
   KPuzzle,
-  stateForSiGNMove
+  stateForBlockMove
 } from "./kpuzzle"
 
 export {
