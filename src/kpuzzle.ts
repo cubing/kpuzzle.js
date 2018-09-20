@@ -68,7 +68,7 @@ export function Invert(def: KPuzzleDefinition, t: Transformation): Transformatio
     for (var idx = 0; idx < oDef.numPieces; idx++) {
       var fromIdx = (o.permutation[idx] as number);
       newPerm[fromIdx] = idx;
-      newOri[fromIdx] = (oDef.orientations - o.orientation[idx]) % oDef.orientations;
+      newOri[fromIdx] = (oDef.orientations - o.orientation[idx] + oDef.orientations) % oDef.orientations;
     }
     newTrans[orbitName] = {permutation: newPerm, orientation: newOri};
   }
