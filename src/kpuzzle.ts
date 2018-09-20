@@ -1,4 +1,4 @@
-import {BlockMove, algToString, Sequence} from "alg"
+import {BlockMove, algToString, Sequence, expand} from "alg"
 import {OrbitTransformation, Transformation, OrbitDefinition, KPuzzleDefinition} from "./spec"
 import {MoveExpander} from "./move-expander"
 
@@ -136,6 +136,13 @@ export class KPuzzle {
 
   applyBlockMove(blockMove: BlockMove) {
     this.state = Combine(this.definition, this.state, stateForBlockMove(this.definition, blockMove));
+  }
+
+  applyAlg(a: Sequence): void {
+    // TODO: Iterator instead of full expansion.
+    for (var move of <BlockMove[]>(expand(a).nestedUnits)) {
+      this.applyBlockMove(move);
+    }
   }
 
   applyMove(moveName: string): this {
