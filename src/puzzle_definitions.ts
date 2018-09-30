@@ -85,9 +85,9 @@ export const Puzzles: {[key: string]: KPuzzleDefinition} = {
         "CENTER": {"permutation": [0, 1, 2, 3, 4, 5], "orientation": [0, 0, 0, 0, 0, 1]}
       },
       "z": {
-        "EDGE": {"permutation": [8, 5, 10, 1, 9, 7, 11, 3, 4, 0, 6, 2], "orientation": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]},
-        "CORNER": {"permutation": [4, 7, 1, 0, 5, 3, 2, 6], "orientation": [1, 2, 1, 2, 2, 1, 2, 1]},
-        "CENTER": {"permutation": [3, 0, 2, 5, 4, 1], "orientation": [3, 3, 3, 3, 1, 3]}
+        "EDGE": {"permutation":[9,3,11,7,8,1,10,5,0,4,2,6], "orientation":[1,1,1,1,1,1,1,1,1,1,1,1]},
+        "CORNER": {"permutation":[3,2,6,5,0,4,7,1], "orientation":[1,2,1,2,2,1,2,1]},
+        "CENTER": {"permutation":[1,5,2,0,4,3], "orientation":[1,1,1,1,3,1]}
       },
       "M": {
         "EDGE": {"permutation": [2, 1, 6, 3, 0, 5, 4, 7, 8, 9, 10, 11], "orientation": [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]},
@@ -115,9 +115,9 @@ export const Puzzles: {[key: string]: KPuzzleDefinition} = {
         "CENTER": {"permutation": [4, 1, 0, 3, 5, 2], "orientation": [2, 1, 0, 0, 2, 0]}
       },
       "f": {
-        "EDGE": {"permutation": [8, 5, 6, 1, 9, 7, 2, 3, 4, 0, 11, 10], "orientation": [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]},
-        "CORNER": {"permutation": [4, 6, 7, 0, 5, 3, 1, 2], "orientation": [1, 0, 0, 2, 2, 1, 0, 0]},
-        "CENTER": {"permutation": [3, 0, 2, 5, 4, 1], "orientation": [3, 3, 3, 3, 2, 3]}
+        "EDGE": {"permutation": [9,3,2,7,8,1,6,5,0,4,10,11], "orientation":[1,1,0,1,1,1,0,1,1,1,0,0]},
+        "CORNER": {"permutation": [3,1,2,5,0,4,6,7], "orientation": [1,0,0,2,2,1,0,0]},
+        "CENTER": {"permutation": [1,5,2,0,4,3],"orientation": [1,1,1,1,0,1]}
       },
       "r": {
         "EDGE": {"permutation": [4, 8, 0, 3, 6, 10, 2, 7, 5, 9, 1, 11], "orientation": [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]},
@@ -125,9 +125,9 @@ export const Puzzles: {[key: string]: KPuzzleDefinition} = {
         "CENTER": {"permutation": [2, 1, 5, 3, 0, 4], "orientation": [0, 0, 0, 1, 2, 2]}
       },
       "b": {
-        "EDGE": {"permutation": [4, 3, 11, 7, 0, 1, 10, 5, 9, 8, 2, 6], "orientation": [0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1]},
-        "CORNER": {"permutation": [5, 2, 6, 4, 3, 0, 7, 1], "orientation": [0, 2, 1, 0, 0, 0, 2, 1]},
-        "CENTER": {"permutation": [1, 5, 2, 0, 4, 3], "orientation": [1, 1, 2, 1, 3, 1]}
+        "EDGE": {"permutation": [8,5,2,1,9,7,6,3,4,0,10,11], "orientation":[1,1,0,1,1,1,0,1,1,1,0,0]},
+        "CORNER": {"permutation": [4,1,2,0,5,3,6,7], "orientation": [1,0,0,2,2,1,0,0]},
+        "CENTER": {"permutation": [3,0,2,5,4,1],"orientation": [3,3,3,3,0,3]}
       },
       "d": {
         "EDGE": {"permutation": [0, 1, 2, 3, 7, 4, 5, 6, 9, 11, 8, 10], "orientation": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]},
