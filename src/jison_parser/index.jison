@@ -1,21 +1,18 @@
 
 /* lexical grammar */
 %lex
-%s id
 %%
 
-"Name"                 { this.begin("id"); return "TOKEN_Name" }
+"Name"                 return "TOKEN_Name"
 "Set"                  return "TOKEN_Set"
-"Move"                 { this.begin("id"); return "TOKEN_Move" }
+"Move"                 return "TOKEN_Move"
 "Solved"               return "TOKEN_Solved"
 "End"                  return "TOKEN_End"
-/* TODO: Split this up into smaller, more understandable parts. */
-<id>(([1-9][0-9]*)(([1-9][0-9]*)*)?)*(([A-Za-z]+)|(\<[A-Za-z]+(_[A-Za-z]+)*\>)) { this.popState(); return "IDENTIFIER" }
-[A-Za-z][A-Za-z0-9]*   return "SET_IDENTIFIER"
+[A-Za-z][A-Za-z0-9_]*  return "IDENTIFIER"
 [0-9]+                 return "INTEGER"
 "#"[^\r\n]*            /* ignore comment */
-" "                    return "SPACE"
-\r?[\n]                return "NEWLINE"
+[ ]+                   return "SPACE"
+\r?[\n]                return "LINEFEED"
 <<EOF>>                return "EOF"
 .                      return "INVALID"
 
@@ -28,14 +25,24 @@ expressions
         { return $1; }
     ;
 
+NEWLINE
+    : LINEFEED
+    | SPACE LINEFEED
+    ;
+
+MAYBENUMBERED_IDENTIFIER
+    : IDENTIFIER
+    | INTEGER IDENTIFIER { $$ = "" + $INTEGER + $IDENTIFIER }
+    ;
+
 NAME_DEFINITION
-    : TOKEN_Name SPACE IDENTIFIER
-        {$$ = $IDENTIFIER;}
+    : TOKEN_Name SPACE MAYBENUMBERED_IDENTIFIER
+        {$$ = $MAYBENUMBERED_IDENTIFIER;}
     ;
 
 ORBIT_DEFINITION
-    : TOKEN_Set SPACE SET_IDENTIFIER SPACE INTEGER SPACE INTEGER
-        {$$ = [$SET_IDENTIFIER, {numPieces: parseInt($5), orientations: parseInt($7)}];}
+    : TOKEN_Set SPACE IDENTIFIER SPACE INTEGER SPACE INTEGER
+        {$$ = [$IDENTIFIER, {numPieces: parseInt($5), orientations: parseInt($7)}];}
     ;
 
 ORBIT_DEFINITIONS
@@ -56,27 +63,29 @@ OPTIONAL_NEWLINES
     ;
 
 NUMBERS
-    : INTEGER
+    :
+        {$$ = [];}
+    | INTEGER
         {$$ = [parseInt($INTEGER)];}
     | NUMBERS SPACE INTEGER
         {$$ = $NUMBERS.concat([parseInt($INTEGER)]);}
     ;
 
 PERMUTATION
-    : NUMBERS
+    : NUMBERS NEWLINE
         {$$ = $NUMBERS.map(function(x) {return x - 1;});}
     ;
 
 DEFINITION
-    : SET_IDENTIFIER NEWLINE PERMUTATION NEWLINE
+    : IDENTIFIER NEWLINE PERMUTATION
         {
-            $$ = [$SET_IDENTIFIER, {permutation: $PERMUTATION, orientation: []}];
+            $$ = [$IDENTIFIER, {permutation: $PERMUTATION, orientation: []}];
             for (var i = 0; i < $PERMUTATION.length; i++) {
                 $$[1].orientation.push(0);
             }
         }
-    | SET_IDENTIFIER NEWLINE PERMUTATION NEWLINE NUMBERS NEWLINE
-        {$$ = [$SET_IDENTIFIER, {permutation: $PERMUTATION, orientation: $NUMBERS}];}
+    | IDENTIFIER NEWLINE PERMUTATION NUMBERS NEWLINE
+        {$$ = [$IDENTIFIER, {permutation: $PERMUTATION, orientation: $NUMBERS}];}
     ;
 
 DEFINITIONS
@@ -92,8 +101,8 @@ START_PIECES
     ;
 
 MOVE
-    : TOKEN_Move SPACE IDENTIFIER NEWLINE DEFINITIONS TOKEN_End
-        {$$ = [$IDENTIFIER, $DEFINITIONS];}
+    : TOKEN_Move SPACE MAYBENUMBERED_IDENTIFIER NEWLINE DEFINITIONS TOKEN_End
+        {$$ = [$MAYBENUMBERED_IDENTIFIER, $DEFINITIONS];}
     ;
 
 MOVES
@@ -104,6 +113,6 @@ MOVES
     ;
 
 DEFINITION_FILE
-    : NAME_DEFINITION INTERSTITIAL ORBIT_DEFINITIONS INTERSTITIAL START_PIECES INTERSTITIAL MOVES OPTIONAL_NEWLINES
+    : OPTIONAL_NEWLINES NAME_DEFINITION INTERSTITIAL ORBIT_DEFINITIONS INTERSTITIAL START_PIECES INTERSTITIAL MOVES OPTIONAL_NEWLINES
         {$$ = {name: $NAME_DEFINITION, orbits: $ORBIT_DEFINITIONS, moves: $MOVES, startPieces: $START_PIECES};}
     ;
