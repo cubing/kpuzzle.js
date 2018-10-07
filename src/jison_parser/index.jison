@@ -37,7 +37,7 @@ NUM_IDENTIFIER
 
 MOVE_IDENTIFIER
     : NUM_IDENTIFIER
-       { if (!/^[0-9]?[1-9]*[A-Za-z][A-Za-z_]*$/.test($NUM_IDENTIFIER))
+       { if (!/^[1-9]?[0-9]*[A-Za-z][A-Za-z_]*$/.test($NUM_IDENTIFIER))
            throw new Error("Illegal move syntax " + $NUM_IDENTIFIER) ;
        }
     ;
