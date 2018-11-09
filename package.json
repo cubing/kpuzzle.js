@@ -1,13 +1,13 @@
 {
   "name": "kpuzzle",
   "main": "./dist/kpuzzle.js",
-  "version": "0.9.17",
+  "version": "0.9.18",
   "description": "Puzzle representation using ksolve's approach.",
   "author": "The js.cubing.net team",
   "license": "GPL-3.0-or-later",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "alg": "^0.9.17"
+    "alg": "^0.9.18"
   },
   "externalsForWebpack": [
     "alg"

@@ -181,9 +181,10 @@ ajv@^6.1.0:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.1"
 
-alg@^0.9.17:
-  version "0.9.17"
-  resolved "https://registry.yarnpkg.com/alg/-/alg-0.9.17.tgz#33a5b1a6c2419641a5ce056bfee3052e4bb54d18"
+alg@^0.9.18:
+  version "0.9.18"
+  resolved "https://registry.yarnpkg.com/alg/-/alg-0.9.18.tgz#61edf7ffceea85c7d03423701cd5602c8bb98433"
+  integrity sha512-vwaFSKzwSauw0L4NZD2XnamycPnrFaYA3ng9/PfA8cytBaqfB3u3pzHwoFl3IW27BM99ohbwIS8F1O9BXEbMUQ==
 
 amdefine@>=0.0.4:
   version "1.0.1"
